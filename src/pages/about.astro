@@ -1,14 +1,17 @@
 ---
-const pageTitle = "Sobre mi";
+import Navigation from '../components/Navigation.astro';
+import "../styles/global.css";
+export const pageTitle = "Sobre mi";
+import Footer from '../components/Footer.astro';
 
-const identity = {
+export const identity = {
   firstName: "Sarah",
   country: "Canada",
   occupation: "Escritor técnico",
   hobbies: ["fotografia", "observación de aves", "peñarol"],
 };
 
-const skills = [
+export const skills = [
   "HTML",
   "CSS",
   "JavaScript",
@@ -17,12 +20,14 @@ const skills = [
   "Redacción de documentos",
 ];
 
-const happy = false;
+export const happy = false;
 const finished = false;
-const goal = 3;
+export const goal = 3;
 
 const skillColor = "blue";
 const skillColord = "yellow";
+const fontWeight = "bold";
+const textCase = "uppercase";
 ---
 
 <html lang="es">
@@ -32,20 +37,19 @@ const skillColord = "yellow";
     <title>{pageTitle}</title>
   </head>
   <body>
-    <style define:vars={{ skillColor }}>
+    <style define:vars={{ skillColor, fontWeight, textCase }}>
       h1 {
         color: var(--skillColor);
-        font-size: 4rem;
+        font-size: 5rem;
       }
       .skill {
         color: var(--skillColor);
-        font-weight: bold;
+        font-weight: var(--skillWeight);
+        text-transform: var(--textCase);
       }
     </style>
 
-    <a href="/">Inicio</a>
-    <a href="/about/">Sobre mi</a>
-    <a href="/blog/">Blog</a>
+    <Navigation/>
     <h1>{pageTitle}</h1>
     <h2>... ¡y mi nuevo sitio Astro!</h2>
 
@@ -82,7 +86,7 @@ const skillColord = "yellow";
         <p>Mi objetivo no son 3 días.</p>
       )
     }
-
+<Footer/>
     
   </body>
 </html>
